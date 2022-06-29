@@ -7,4 +7,13 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'nomprojet';
+
+  constructor() {
+    this.exo1();
+  }
+
+  exo1(): void {
+    console.log('Exo 1');
+  }
+
 }
