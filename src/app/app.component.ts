@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {IStudent} from "../models/i-student";
+import {IScrabble} from "../models/i-scrabble";
 
 @Component({
   selector: 'app-root',
@@ -40,6 +41,10 @@ export class AppComponent {
     // console.log(this.acerp('Angular'));
     // console.log(this.checkPassword('@ngular140'));
     // this.transform('chat');
+    // this.reverseString('chapeau');
+    // this.isPangram('Thé quick brown fox jumps ovêr the làzy dòg.');
+    // this.getScrabbleScores('jynx');
+    this.beerSong(99);
   }
 
   exo1(age: number): void {
@@ -66,7 +71,7 @@ export class AppComponent {
    * Exo 3 : Calcul un prix TTC à partir d'un prix HT & sa quantité
    * @param priceU
    * @param qty
-   * @param taxes
+   * @param taxes param facultatif, par défaut il aura 19.6
    * @private
    */
   calcTTC(priceU: number, qty: number, taxes: number = 19.6): void {
@@ -126,6 +131,7 @@ export class AppComponent {
   removeDual(arrayNumber: number[]): void {
     // arrayTmp = []
     let arrayTmp: number[] = [];
+    // arrayTmp.reverse()
     // parcours arrayNumber,
     for (const ite of arrayNumber) {
       // si mon itération en cours (ite) n'existe pas dans arrayTmp
@@ -177,17 +183,100 @@ export class AppComponent {
   }
 
   // chat => chafeat
+  // a => afea
   transform(word: string, transformValue: string = 'fe'): void {
-    for (const letter of word) {
-      console.log(letter);
-    }
     // Déclarer une chaineTmp => la nouvelle chaine de caractères qui aura les modifs
+    let stringTmp: string = '';
     // les voyelles => ['a', 'e'...]
+    const vowels: string[] = ['a', 'e', 'i', 'o', 'u','y'];
     // parcours word (le mot en param) => boucle for..of ?
+    for (const letter of word) {
       // ajouter la lettre en cours de parcours directement à chaineTmp
+      stringTmp += letter; // a
       // si la lettre en cours de parcours est une voyelle, alors
-      // j'ajoute la transformationValue à chaineTmp, puis je répère la lettre en cours de parcours
+      if (vowels.includes(letter)) {
+        // j'ajoute la transformationValue à chaineTmp, puis je répère la lettre en cours de parcours
+        stringTmp += transformValue + letter; // fe + a
+      }
+    }
     // log chaineTmp (en dehors de la boucle)
+    console.log(stringTmp);
+  }
+
+  /**
+   * @param str
+   * @private
+   */
+  reverseString(str: string) {
+    let newStr: string = '';
+    // str.length - 1 => car un index dans un tableau/string commence à 0 !
+    // donc pour chaine de 7 caractères le dernier indice sera 6, et non 7
+    for (let i = (str.length - 1); i >= 0; i--) {
+      newStr += str[i];
+    }
+    console.log(newStr);
+  }
+
+  /**
+   * @param str
+   * @private
+   */
+  isPangram(str: string) {
+    let stringTmp: string[] = [];
+    const alpha: string[] = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't','u', 'v', 'w', 'x','y', 'z'];
+    str = str.toLowerCase().trim();
+    str = str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+    // parcours str (le mot en param) => boucle for..of ?
+    for (const letter of str) {
+      if (alpha.includes(letter) && !stringTmp.includes(letter)) {
+        stringTmp.push(letter);
+      }
+    }
+    console.log(stringTmp.length === alpha.length);
+  }
+
+  getScrabbleScores(str: string): void {
+    const scores: IScrabble[] = [
+      { point: 1, letters: ["A", "E", "I", "O", "U", "L", "N", "R", "S", "T"] },
+      { point: 2, letters: ["D", "G"] },
+      { point: 3, letters: ["B", "C", "M", "P"] },
+      { point: 4, letters: ["F", "H", "V", "W", "Y"] },
+      { point: 5, letters: ["K"] },
+      { point: 8, letters: ["J", "X"] },
+      { point: 10, letters: ["Q", "Z"] }
+    ];
+
+    // mettre la chaine en majuscule pour tester les bonnes lettres
+    str = str.toUpperCase();
+    // variable tmp pour le score
+    let finalScore: number = 0;
+    // parcours de la chaine de caractères de base
+    for (const letter of str) {
+      //  parcours du tableau de scores
+      for (const score of scores) {
+        // on vérifit si la lettre en cours de parcours, existe dans le tableau de lettre des scores
+        if (score.letters.includes(letter)) {
+          // on ajoute son score
+          finalScore += score.point;
+        }
+      }
+    }
+    console.log(finalScore);
+  }
+
+  beerSong(nbBeers: number): void {
+    if (nbBeers > 0) {
+      console.log(nbBeers + ' bottles of beer on the wall, ' + nbBeers + ' bottles of beer.');
+      const oneLessBeer: number = nbBeers - 1;
+      const textLessBeer: string = oneLessBeer === 0 ? 'no more' : oneLessBeer.toString();
+      console.log('Take one down and pass it around, ' + textLessBeer + ' bottles of beer on the wall.');
+      this.beerSong(nbBeers - 1);
+    } else {
+      console.log(
+        'No more bottles of beer on the wall, no more bottles of beer.\n' +
+        'Go to the store and buy some more, 99 bottles of beer on the wall.'
+      );
+    }
   }
 
 }
