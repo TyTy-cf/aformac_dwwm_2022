@@ -49,6 +49,24 @@ export class AppComponent {
     // this.beerSong(99);
   }
 
+  /** Exo Compteur */
+
+  compteur: number = 0;
+
+  changeCompteur(number: number) {
+    this.compteur += number;
+  }
+
+
+
+
+
+
+
+
+
+
+
   exo1(age: number): number {
     const currentYear: number = (new Date()).getFullYear();
     const res: number = currentYear - age;

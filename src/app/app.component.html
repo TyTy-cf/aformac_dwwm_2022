@@ -1,7 +1,7 @@
 
 <h1>{{ title }}</h1>
 
-<div>
+<div style="padding-left: 20px">
   <h2>Exo 1</h2>
   <p [class.age-50]="age === 50">Pour un âge de {{ age }} ans, je suis né en <strong>{{ exo1(age) }}</strong></p>
 
@@ -24,26 +24,43 @@
     <h2>Students</h2>
     <table>
       <thead>
-        <tr>
-          <th>
-            Nom
-          </th>
-          <th>
-            Notes
-          </th>
-          <th>
-            Moyenne
-          </th>
-        </tr>
+      <tr>
+        <th>
+          Nom
+        </th>
+        <th>
+          Notes
+        </th>
+        <th>
+          Moyenne
+        </th>
+      </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let student of students">
-          <td>{{ student.name }}</td>
-          <td>{{ student.grades.join(' ; ') }}</td>
-          <td>{{ calcAverage(student.grades) }}</td>
-        </tr>
+      <tr *ngFor="let student of students">
+        <td>{{ student.name }}</td>
+        <td>{{ student.grades.join(' ; ') }}</td>
+        <td>{{ calcAverage(student.grades) }}</td>
+      </tr>
       </tbody>
     </table>
+  </div>
+
+  <hr>
+
+  <div>
+    <h2>Compteur</h2>
+    <div>
+      <p [class.jaune]="compteur === 0"
+         [class.darkgreen]="compteur >= 26"
+      >
+        {{ compteur }}
+      </p>
+    </div>
+    <div>
+      <button (click)="changeCompteur(-1)">-1</button>
+      <button (click)="changeCompteur(1)">+1</button>
+    </div>
   </div>
 
 </div>
