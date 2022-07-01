@@ -3,14 +3,14 @@
 
 <div>
   <h2>Exo 1</h2>
-  <p>Pour un âge de {{ age }} ans, je suis né en <strong>{{ exo1(age) }}</strong></p>
+  <p [class.age-50]="age === 50">Pour un âge de {{ age }} ans, je suis né en <strong>{{ exo1(age) }}</strong></p>
 
   <p *ngIf="age === 50; else notBicentenaire">
     Vous êtes bi-centenaire YOUHOU APERO
   </p>
 
   <div>
-    <button (click)="changeAge(1)">
+    <button (click)="changeAge(1)" [disabled]="age === 60">
       Add age
     </button>
     <button (click)="changeAge(-1)">
