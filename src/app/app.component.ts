@@ -40,11 +40,12 @@ export class AppComponent {
     // this.generateMultiplicationTable(7);
     // console.log(this.acerp('Angular'));
     // console.log(this.checkPassword('@ngular140'));
+    this.millisecToString(225567);
     // this.transform('chat');
     // this.reverseString('chapeau');
     // this.isPangram('Thé quick brown fox jumps ovêr the làzy dòg.');
     // this.getScrabbleScores('jynx');
-    this.beerSong(99);
+    // this.beerSong(99);
   }
 
   exo1(age: number): void {
@@ -180,6 +181,21 @@ export class AppComponent {
   checkPassword(password: string): boolean {
     return password.length > 9 && password.includes('@');
     // return password.length > 9 && password.indexOf('@') >= 0;
+  }
+
+  /**
+   * Exo 11 : convert integer (ms) to string
+   * @param millsec 250000
+   */
+  millisecToString(millsec: number): void {
+    const ms: number = millsec % 1000;
+    const hms: number = Math.floor(millsec / 1000);
+    const sec: number = hms % 60;
+    const min: number = Math.floor(hms / 60);
+    const minStr: string = min < 10 ? '0'+min : min.toString();
+    const secStr: string = sec < 10 ? '0'+sec : sec.toString();
+    const msStr: string = ms < 10 ? '00'+ms : ms < 100 ? '0'+ms : ms.toString();
+    console.log(minStr + ':'+secStr+'.'+msStr);
   }
 
   // chat => chafeat
