@@ -9,17 +9,9 @@ import {IScrabble} from "../models/i-scrabble";
 })
 export class AppComponent {
 
-  title = 'nomprojet';
-  // anArray: Array<string> = new Array<string>();
-  // anArray: Array<string> = [];
-  // anArray: string[] = [];
-
-  constructor() {
-    // this.exo1(32);
-    // this.calcAverage([12, 15, 19, 2, 14]);
-    // this.calcTTC(7.5, 4);
-    // this.waterType(52);
-    const students: IStudent[] =
+  title: string = 'Exos Typescript';
+  age: number = 42;
+  students: IStudent[] =
     [
       {
         name: 'Albert',
@@ -34,7 +26,16 @@ export class AppComponent {
         grades: [14, 13, 12, 11, 10]
       }
     ];
-    // this.studentsAverage(students);
+  // anArray: Array<string> = new Array<string>();
+  // anArray: Array<string> = [];
+  // anArray: string[] = [];
+
+  constructor() {
+    // this.exo1(32);
+    // this.calcAverage([12, 15, 19, 2, 14]);
+    // this.calcTTC(7.5, 4);
+    // this.waterType(52);
+    // this.studentsAverage(this.students);
     // this.calcPercent(100, 25);
     // this.removeDual([1, 2, 3, 3, 3, 4, 5, 5]);
     // this.generateMultiplicationTable(7);
@@ -48,9 +49,15 @@ export class AppComponent {
     // this.beerSong(99);
   }
 
-  exo1(age: number): void {
+  exo1(age: number): number {
     const currentYear: number = (new Date()).getFullYear();
-    console.log(currentYear - age);
+    const res: number = currentYear - age;
+    console.log(res);
+    return res;
+  }
+
+  changeAge(newVal: number): void {
+    this.age += newVal;
   }
 
   /**
@@ -294,5 +301,4 @@ export class AppComponent {
       );
     }
   }
-
 }
