@@ -1,0 +1,85 @@
+
+<h1>{{ title }}</h1>
+
+<div style="padding-left: 20px">
+  <h2>Exo 1</h2>
+  <p [class.age-50]="age === 50">Pour un âge de {{ age }} ans, je suis né en <strong>{{ exo1(age) }}</strong></p>
+
+  <p *ngIf="age === 50; else notBicentenaire">
+    Vous êtes bi-centenaire YOUHOU APERO
+  </p>
+
+  <div>
+    <button
+      class="btn-success"
+      (click)="changeAge(1)"
+      [disabled]="age === 60"
+    >
+      Add age
+    </button>
+    <button
+      class="btn-danger"
+      (click)="changeAge(-1)"
+    >
+      Remove age
+    </button>
+  </div>
+
+  <hr>
+
+  <div>
+    <h2>Students</h2>
+    <table>
+      <thead>
+      <tr>
+        <th>
+          Nom
+        </th>
+        <th>
+          Notes
+        </th>
+        <th>
+          Moyenne
+        </th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let student of students">
+        <td>{{ student.name }}</td>
+        <td>{{ student.grades.join(' ; ') }}</td>
+        <td>{{ calcAverage(student.grades) }}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <hr>
+
+  <div>
+    <h2>Compteur</h2>
+    <div class="d-flex">
+      <button class="btn-danger"
+              (click)="changeCompteur(-1)"
+      >
+        -1
+      </button>
+      <p [class.jaune]="compteur === 0"
+         [class.darkgreen]="compteur >= 26"
+         class="mx-5"
+      >
+        {{ compteur }}
+      </p>
+      <button class="btn-success"
+              (click)="changeCompteur(1)"
+      >
+        +1
+      </button>
+    </div>
+  </div>
+
+</div>
+
+<ng-template #notBicentenaire>
+  <p *ngIf="age < 50">Surprise à 50 ans...</p>
+  <p *ngIf="age > 50">Bientôt la retraite ! APERO</p>
+</ng-template>
