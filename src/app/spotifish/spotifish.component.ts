@@ -10,13 +10,9 @@ import {Playlist} from "../../models/spotifish/playlist";
 })
 export class SpotifishComponent {
 
-  constructor() {
-    const song: Song = new Song(
-      'Triste mais vrai',
-      328
-    );
-    console.log(song.getTime());
+  playlist: Playlist;
 
+  constructor() {
     let birthDateToto: Date = new Date();
     birthDateToto.setFullYear(2000);
 
@@ -27,12 +23,32 @@ export class SpotifishComponent {
     );
     user.firstName = 'Toto';
 
-    let playlist: Playlist = new Playlist(
+    const song: Song = new Song(
+      'Triste mais vrai',
+      328
+    );
+    this.playlist = new Playlist(
       'Zuper playlist',
       user,
       true
     );
-    console.log(playlist);
+    this.playlist.addSong(song);
+    // console.log(this.playlist);
+    this.playlist.removeSong(this.playlist.arraySongsPlaylist.indexOf(song));
+  }
+
+  addSong(): void {
+    const song2: Song = new Song(
+      'Chevauche la foudre',
+      397
+    );
+    this.playlist.addSong(song2);
+    console.log(this.playlist);
+  }
+
+  rename(): void {
+    this.playlist.name = 'Another Playlist Name';
+    console.log(this.playlist);
   }
 
 }
