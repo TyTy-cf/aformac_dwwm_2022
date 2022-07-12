@@ -3,7 +3,7 @@ import {Song} from "./song";
 
 export class Playlist {
 
-  private _songs: Song[] = [];
+  private _songsArray: Song[] = [];
   private _createdAt: Date = new Date();
   private _updatedAt: Date = new Date();
 
@@ -22,7 +22,7 @@ export class Playlist {
   }
 
   get songs(): Song[] {
-    return this._songs;
+    return this._songsArray;
   }
 
   get createdAt(): Date {
@@ -38,12 +38,27 @@ export class Playlist {
   }
 
   addSong(song: Song): boolean {
-    if (!this._songs.includes(song)) {
-      this._songs.push(song);
+    if (!this._songsArray.includes(song)) {
+      this._songsArray.push(song);
       this._updatedAt = new Date();
       return true;
     }
     return false;
+  }
+
+  getTotalTime(): string {
+    let totalTime: number = 0;
+    for (const song of this._songsArray) {
+      totalTime += song.duration;
+    }
+
+    if (totalTime === 0) return '';
+
+    const sec: number = totalTime % 60;
+    const min: number = Math.floor(totalTime / 60);
+    const minStr: string = min < 10 ? '0' + min : min.toString();
+    const secStr: string = sec < 10 ? '0' + sec : sec.toString();
+    return minStr + ':' + secStr;
   }
 
 }

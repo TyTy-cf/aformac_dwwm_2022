@@ -14,17 +14,6 @@ export class AppComponent {
   /** Dices */
   dice: Dice = new Dice();
 
-  constructor() {
-    let birthDateToto: Date = new Date();
-    birthDateToto.setFullYear(2000);
-
-    let user: User = new User(
-      'toto@gmail.com',
-      'ZuperToto',
-      birthDateToto
-    );
-    user.firstName = 'Toto';
-    console.log(user.firstName);
-  }
+  constructor() { }
 
 }
