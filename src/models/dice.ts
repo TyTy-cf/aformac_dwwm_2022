@@ -1,7 +1,7 @@
 
 export class Dice {
 
-  private readonly _value: number = 1;
+  private _value: number = 1;
   private readonly _image: string = '';
 
   constructor() {
@@ -15,6 +15,10 @@ export class Dice {
 
   get image(): string {
     return this._image;
+  }
+
+  reroll(): void {
+    this._value = Math.floor(Math.random() * 6) + 1;
   }
 
 }

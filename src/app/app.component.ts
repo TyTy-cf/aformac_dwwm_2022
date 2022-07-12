@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {IStudent} from "../models/i-student";
 import {IScrabble} from "../models/i-scrabble";
+import {Dice} from "../models/dice";
 
 @Component({
   selector: 'app-root',
@@ -30,7 +31,14 @@ export class AppComponent {
   // anArray: Array<string> = [];
   // anArray: string[] = [];
 
+  /** Dices */
+  dice: Dice = new Dice();
+
   constructor() {
+    console.log('avant reroll : ' + this.dice.value);
+    this.dice.reroll();
+    console.log('Après reroll : ' + this.dice.value);
+
     // this.exo1(32);
     // this.calcAverage([12, 15, 19, 2, 14]);
     // this.calcTTC(7.5, 4);
@@ -41,7 +49,7 @@ export class AppComponent {
     // this.generateMultiplicationTable(7);
     // console.log(this.acerp('Angular'));
     // console.log(this.checkPassword('@ngular140'));
-    this.millisecToString(225567);
+    // this.millisecToString(225567);
     // this.transform('chat');
     // this.reverseString('chapeau');
     // this.isPangram('Thé quick brown fox jumps ovêr the làzy dòg.');
@@ -56,14 +64,6 @@ export class AppComponent {
   changeCompteur(number: number) {
     this.compteur += number;
   }
-
-
-
-
-
-
-
-
 
 
 
