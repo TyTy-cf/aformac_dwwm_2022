@@ -62,19 +62,12 @@ export class Playlist {
     );
   }
 
-  getTotalTime(): string {
+  getTotalTime(): number {
     let totalTime: number = 0;
     for (const song of this._arraySongsPlaylist) {
       totalTime += song.duration;
     }
-
-    if (totalTime === 0) return '00:00';
-
-    const sec: number = totalTime % 60;
-    const min: number = Math.floor(totalTime / 60);
-    const minStr: string = min < 10 ? '0' + min : min.toString();
-    const secStr: string = sec < 10 ? '0' + sec : sec.toString();
-    return minStr + ':' + secStr;
+    return totalTime;
   }
 
 }
