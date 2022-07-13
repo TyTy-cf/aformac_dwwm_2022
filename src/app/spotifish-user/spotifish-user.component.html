@@ -1,0 +1,14 @@
+
+<div class="container">
+
+  <h1>Playlists de {{user.nickname}}</h1>
+
+  <ul class="list-unstyled">
+    <div *ngFor="let playlist of arrayPlaylistsUser">
+      <li *ngIf="playlist.visibility">
+        {{playlist.name}}, créée le {{playlist.createdAt | date:'dd/MM/YYYY'}}
+      </li>
+    </div>
+  </ul>
+
+</div>

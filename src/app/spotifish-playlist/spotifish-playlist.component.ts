@@ -49,7 +49,12 @@ export class SpotifishPlaylistComponent {
       'Chevauche la foudre',
       397
     );
+    const song: Song = new Song(
+      'Triste mais vrai',
+      328
+    );
     this.playlist.addSong(song2);
+    this.playlist.addSong(song);
   }
 
   rename(): void {
