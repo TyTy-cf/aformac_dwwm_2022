@@ -1,0 +1,17 @@
+
+<div class="container">
+
+  <h1>Playlist : {{ playlist.name }} ({{playlist.getTotalTime()}})</h1>
+  <p>Créée par <strong>{{playlist.creator.nickname}}</strong> le <strong>{{playlist.createdAt | date:'dd-MM-YYYY' }}</strong></p>
+
+  <ul *ngIf="playlist.arraySongsPlaylist.length > 0" class="list-unstyled">
+    <li *ngFor="let song of playlist.arraySongsPlaylist">{{ song.name }} ({{ song.getTime() }})</li>
+  </ul>
+
+  <button class="btn btn-warning" (click)="addSong()">
+    ++++
+  </button>
+  <button class="btn btn-primary" (click)="rename()">
+    Rename
+  </button>
+</div>

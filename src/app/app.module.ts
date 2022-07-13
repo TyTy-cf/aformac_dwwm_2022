@@ -5,12 +5,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ExosAlgoTsComponent } from './exos-algo-ts/exos-algo-ts.component';
 import { SpotifishComponent } from './spotifish/spotifish.component';
+import { SpotifishPlaylistComponent } from './spotifish-playlist/spotifish-playlist.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ExosAlgoTsComponent,
-    SpotifishComponent
+    SpotifishComponent,
+    SpotifishPlaylistComponent
   ],
   imports: [
     BrowserModule,
