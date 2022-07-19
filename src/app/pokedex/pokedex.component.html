@@ -1,1 +1,42 @@
-<p>pokedex works!</p>
+
+<div class="container">
+
+  <div class="row" *ngIf="pokeApiRequest">
+
+    <div class="d-flex justify-content-between">
+
+      <button class="btn btn-info"
+              [disabled]="!pokeApiRequest.previous"
+              (click)="getPagePokedex()"
+      >
+        First
+      </button>
+      <button class="btn btn-primary"
+              [disabled]="!pokeApiRequest.previous"
+              (click)="getPagePokedex(pokeApiRequest.previous)"
+      >
+        Previous
+      </button>
+      <button class="btn btn-primary"
+              [disabled]="!pokeApiRequest.next"
+              (click)="getPagePokedex(pokeApiRequest.next)"
+      >
+        Next
+      </button>
+      <button class="btn btn-info"
+              [disabled]="!pokeApiRequest.next"
+              (click)="getPagePokedex('https://pokeapi.co/api/v2/pokemon?offset=1140&limit=20')"
+      >
+        Last
+      </button>
+    </div>
+
+    <div class="col-lg-3 col-md-6 mb-2"
+         *ngFor="let pokemon of pokeApiRequest.results"
+    >
+      <img class="img-fluid" [src]="getImage(pokemon.url)">
+      <p class="text-center">{{ pokemon.name|titlecase }} #{{getIndex(pokemon.url)}}</p>
+    </div>
+  </div>
+
+</div>

@@ -10,6 +10,7 @@ import { HeaderComponent } from './header/header.component';
 import { SpotifishPlaylistComponent } from './spotifish-playlist/spotifish-playlist.component';
 import { SpotifishUserComponent } from './spotifish-user/spotifish-user.component';
 import { SpotifishArtistComponent } from './spotifish-artist/spotifish-artist.component';
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { SpotifishArtistComponent } from './spotifish-artist/spotifish-artist.co
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
