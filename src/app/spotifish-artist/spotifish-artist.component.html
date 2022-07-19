@@ -1,0 +1,19 @@
+
+<div class="container">
+
+  <h1>Albums de : {{artist.name}}</h1>
+
+  <ul class="list-unstyled">
+    <li *ngFor="let album of arrayAlbumArtists">
+      <h3>
+        {{ album.name }} ({{ timeService.getTimeFromSeconds(album.getTotalTime()) }})
+        <strong *ngIf="album.explicitContent">(E)</strong>
+      </h3>
+      <ul class="list-unstyled">
+        <li *ngFor="let song of album.songsAlbum; let index = index">
+          {{index+1}}. {{song.name}} ({{timeService.getTimeFromSeconds(song.duration)}})
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
