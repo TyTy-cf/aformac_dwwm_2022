@@ -5,12 +5,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ExosAlgoTsComponent } from './exos-algo-ts/exos-algo-ts.component';
 import { SpotifishComponent } from './spotifish/spotifish.component';
+import { PokedexComponent } from './pokedex/pokedex.component';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ExosAlgoTsComponent,
-    SpotifishComponent
+    SpotifishComponent,
+    PokedexComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,

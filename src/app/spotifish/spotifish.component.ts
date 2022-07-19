@@ -34,6 +34,7 @@ export class SpotifishComponent {
     );
     this.playlist.addSong(song);
     // console.log(this.playlist);
+    console.log(this.playlist)
     this.playlist.removeSong(this.playlist.arraySongsPlaylist.indexOf(song));
   }
 
