@@ -1,1 +1,72 @@
-<p>account works!</p>
+
+<div class="container">
+
+  <h1>Les comptes de SteamIsh</h1>
+
+  <div *ngIf="steamIshRequest">
+
+<!--    <div class="d-flex justify-content-around my-4">-->
+<!--      <button class="btn btn-warning"-->
+<!--              *ngFor="let itemIteration of arrayItems"-->
+<!--              (click)="getAccounts(steamIshRequest.page, itemIteration)"-->
+<!--      >-->
+<!--        {{ itemIteration }}-->
+<!--      </button>-->
+<!--    </div>-->
+
+    <div class="d-flex justify-content-around my-4">
+      <button class="btn btn-primary"
+              (click)="getAccounts()"
+              [disabled]="steamIshRequest.page === 1"
+      >
+        First
+      </button>
+      <button class="btn btn-primary"
+              (click)="getAccounts(steamIshRequest.page - 1)"
+              [disabled]="steamIshRequest.page === 1"
+      >
+        Previous
+      </button>
+
+      <p>Page #{{steamIshRequest.page}}</p>
+
+      <button class="btn btn-primary"
+              (click)="getAccounts(steamIshRequest.page + 1)"
+              [disabled]="steamIshRequest.page === steamIshRequest.totalPages"
+      >
+        Next
+      </button>
+      <button class="btn btn-primary"
+              (click)="getAccounts(steamIshRequest.totalPages)"
+              [disabled]="steamIshRequest.page === steamIshRequest.totalPages"
+      >
+        Last
+      </button>
+    </div>
+
+    <table class="table table-striped table-hover">
+      <thead>
+        <tr>
+          <th>Nom</th>
+          <th>Nickname</th>
+          <th>Email</th>
+          <th>Créé le</th>
+          <th>Jeux</th>
+          <th>Nationalité</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let account of steamIshRequest.items">
+          <td>{{account.name}}</td>
+          <td>{{account.nickname}}</td>
+          <td>{{account.email}}</td>
+          <td>{{account.createdAt | date:'dd/MM/yyyy' }}</td>
+          <td>{{account.librariesCount}}</td>
+          <td>
+            <img [src]="account.country.urlFlag">
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
