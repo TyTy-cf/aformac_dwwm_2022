@@ -12,6 +12,7 @@ import { SpotifishUserComponent } from './spotifish-user/spotifish-user.componen
 import { SpotifishArtistComponent } from './spotifish-artist/spotifish-artist.component';
 import {HttpClientModule} from "@angular/common/http";
 import { DigidexComponent } from './digidex/digidex.component';
+import { AccountComponent } from './account/account.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { DigidexComponent } from './digidex/digidex.component';
     SpotifishPlaylistComponent,
     SpotifishUserComponent,
     SpotifishArtistComponent,
-    DigidexComponent
+    DigidexComponent,
+    AccountComponent
   ],
   imports: [
     BrowserModule,

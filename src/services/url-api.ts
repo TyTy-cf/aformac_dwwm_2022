@@ -7,4 +7,7 @@ export class UrlApi {
   static rawUrlDigimon: string = 'https://digimon-api.vercel.app/api/digimon';
   static rawUrlDigimonLevel: string = UrlApi.rawUrlDigimon + '/level/';
 
+  static rawUrlSteamIsh: string = 'https://steam-ish.test-02.drosalys.net/api/';
+  static urlAccount: string = UrlApi.rawUrlSteamIsh + 'account';
+
 }

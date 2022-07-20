@@ -7,6 +7,7 @@ import {SpotifishPlaylistComponent} from "./spotifish-playlist/spotifish-playlis
 import {SpotifishUserComponent} from "./spotifish-user/spotifish-user.component";
 import {SpotifishArtistComponent} from "./spotifish-artist/spotifish-artist.component";
 import {DigidexComponent} from "./digidex/digidex.component";
+import {AccountComponent} from "./account/account.component";
 
 const routes: Routes = [
   { path: 'exos-ts', component: ExosAlgoTsComponent },
@@ -15,7 +16,8 @@ const routes: Routes = [
   { path: 'spotifish/playlist', component: SpotifishPlaylistComponent },
   { path: 'spotifish/user', component: SpotifishUserComponent },
   { path: 'spotifish/artist', component: SpotifishArtistComponent },
-  { path: 'digidex', component: DigidexComponent }
+  { path: 'digidex', component: DigidexComponent },
+  { path: 'account', component: AccountComponent }
 ];
 
 @NgModule({
