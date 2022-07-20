@@ -5,6 +5,6 @@ export class UrlApi {
   static pokedexUrl: string = UrlApi.rawUrl + '/pokemon?offset=0&limit=20';
 
   static rawUrlDigimon: string = 'https://digimon-api.vercel.app/api/digimon';
-  static rawUrlDigimonLevel: string = UrlApi.rawUrlDigimon + '/level';
+  static rawUrlDigimonLevel: string = UrlApi.rawUrlDigimon + '/level/';
 
 }

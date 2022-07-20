@@ -1,1 +1,34 @@
-<p>digidex works!</p>
+
+<div class="container">
+
+  <div class="d-flex justify-content-around my-4">
+    <button class="btn btn-success"
+            (click)="getDigimons()"
+    >
+      Tous
+    </button>
+    <button class="btn btn-primary"
+            *ngFor="let level of arrayLevel"
+            (click)="getLevelUrl(level)"
+    >
+      {{ level|titlecase }}
+    </button>
+  </div>
+
+  <div *ngIf="arrayDigimons.length > 0; else noDigimons" class="row">
+    <div class="col-2" *ngFor="let digimon of arrayDigimons">
+      <img class="img-fluid" [src]="digimon.img">
+<!--      <img class="img-fluid" src="{{ digimon.img }}">-->
+      <div  class="text-center">
+        <strong>{{digimon.name}}</strong>
+      </div>
+      <p class="text-center">{{digimon.level}}</p>
+    </div>
+  </div>
+
+</div>
+
+
+<ng-template #noDigimons>
+  <p>Récupération des digimons en cours...</p>
+</ng-template>

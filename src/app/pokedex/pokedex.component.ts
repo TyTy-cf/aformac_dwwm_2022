@@ -19,9 +19,11 @@ export class PokedexComponent implements OnInit {
   }
 
   getPagePokedex(url: string = UrlApi.pokedexUrl): void {
+
     this._httpService.getRequest<PokeApiRequest>(url)
       .subscribe((jsonResponse) => {
         this.pokeApiRequest = jsonResponse;
+        console.log(jsonResponse)
       }
     );
   }
