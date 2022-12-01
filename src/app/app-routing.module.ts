@@ -8,8 +8,10 @@ import {SpotifishUserComponent} from "./spotifish-user/spotifish-user.component"
 import {SpotifishArtistComponent} from "./spotifish-artist/spotifish-artist.component";
 import {DigidexComponent} from "./digidex/digidex.component";
 import {AccountComponent} from "./account/account.component";
+import {JwtConnexionComponent} from "./jwt-connexion/jwt-connexion.component";
 
 const routes: Routes = [
+  { path: 'spotifish/login', component: JwtConnexionComponent },
   { path: 'exos-ts', component: ExosAlgoTsComponent },
   { path: 'spotifish', component: SpotifishComponent },
   { path: 'pokedex', component: PokedexComponent },

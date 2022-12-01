@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ExosAlgoTsComponent } from './exos-algo-ts/exos-algo-ts.component';
@@ -10,9 +9,10 @@ import { HeaderComponent } from './header/header.component';
 import { SpotifishPlaylistComponent } from './spotifish-playlist/spotifish-playlist.component';
 import { SpotifishUserComponent } from './spotifish-user/spotifish-user.component';
 import { SpotifishArtistComponent } from './spotifish-artist/spotifish-artist.component';
-import {HttpClientModule} from "@angular/common/http";
 import { DigidexComponent } from './digidex/digidex.component';
 import { AccountComponent } from './account/account.component';
+import { JwtConnexionComponent } from './jwt-connexion/jwt-connexion.component';
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -25,7 +25,8 @@ import { AccountComponent } from './account/account.component';
     SpotifishUserComponent,
     SpotifishArtistComponent,
     DigidexComponent,
-    AccountComponent
+    AccountComponent,
+    JwtConnexionComponent
   ],
   imports: [
     BrowserModule,
